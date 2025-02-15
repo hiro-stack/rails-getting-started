@@ -49,6 +49,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  #検索機能用
+  gem 'ransack'
 end
 
 group :development do

@@ -1,7 +1,11 @@
 class ArticlesController < ApplicationController
   http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
   def index
-    @articles = Article.all
+    # ransackを使って検索用のオブジェクトを作成
+    @q = Article.ransack(params[:q])
+    # 検索結果を取得
+    @articles = @q.result(distinct: true)
+    #@articles = Article.all
   end
 
   def show
